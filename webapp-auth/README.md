@@ -1,1 +1,1 @@
-# strapi-tutorials
+# Web Application Login-Logout Authentication
