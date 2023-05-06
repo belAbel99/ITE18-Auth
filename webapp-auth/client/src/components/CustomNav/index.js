@@ -18,26 +18,26 @@ const CustomNav = () => {
 
   return (
     <div className="custom-nav">
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/" className="mr-auto">
-          Welcome to my favorite lessons in life~
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} className="mr-2" />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav navbar>
-            {isLoggedIn ? (
-              <NavItem>
-                <NavLink href="/logout">Logout</NavLink>
-              </NavItem>
-            ) : (
-              <NavItem>
-                <NavLink href="/login">Login</NavLink>
-              </NavItem>
-            )}
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+  <Navbar color="light" light expand="md">
+    <NavbarBrand href="/" className="mr-auto" style={{fontSize: "2rem", fontWeight: "bold", color: "purple"}}>
+      Welcome to my lessons in life!
+    </NavbarBrand>
+    <NavbarToggler onClick={toggle} className="mr-2" />
+    <Collapse isOpen={isOpen} navbar>
+      <Nav navbar>
+        {isLoggedIn ? (
+          <NavItem>
+            <NavLink href="/logout" style={{color: "purple"}}>Logout</NavLink>
+          </NavItem>
+        ) : (
+          <NavItem>
+            <NavLink href="/login" style={{color: "purple"}}>Login</NavLink>
+          </NavItem>
+        )}
+      </Nav>
+    </Collapse>
+  </Navbar>
+</div>
   );
 };
 
