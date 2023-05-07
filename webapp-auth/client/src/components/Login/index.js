@@ -30,7 +30,7 @@ const Login = () => {
             hideProgressBar: true,
           });
           setUser(initialUser);
-          navigate("/");
+          navigate("/home");
         }
       }
     } catch (error) {

@@ -19,7 +19,7 @@ const Registration = () => {
             hideProgressBar: true,
           });
           setUser(initialUser);
-          navigate("/login");
+          navigate("/");
         }
       }
     } catch (error) {

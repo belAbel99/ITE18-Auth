@@ -19,7 +19,7 @@ const CustomNav = () => {
   return (
     <div className="custom-nav">
   <Navbar color="light" light expand="md">
-    <NavbarBrand href="/" className="mr-auto" style={{fontSize: "2rem", fontWeight: "bold", color: "purple"}}>
+    <NavbarBrand href="/home" className="mr-auto" style={{fontSize: "2rem", fontWeight: "bold", color: "purple"}}>
       Welcome to my lessons in life!
     </NavbarBrand>
     <NavbarToggler onClick={toggle} className="mr-2" />
@@ -31,7 +31,7 @@ const CustomNav = () => {
           </NavItem>
         ) : (
           <NavItem>
-            <NavLink href="/login" style={{color: "purple"}}>Login</NavLink>
+            <NavLink href="/" style={{color: "purple"}}>Login</NavLink>
           </NavItem>
         )}
       </Nav>

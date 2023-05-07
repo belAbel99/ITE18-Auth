@@ -12,8 +12,8 @@ function App() {
     <Container>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/product-details/:id" element={<ProductView />} />
