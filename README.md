@@ -17,7 +17,6 @@
 #### Reactstrap
 #### JWT
 #### Setup
-#### Clone the repository and navigate to the project directory.
 
 ## Install the dependencies using NPM:
 
