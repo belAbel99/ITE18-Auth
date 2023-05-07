@@ -1,4 +1,4 @@
-# ITE18-Auth
+# ITE18-Auth-Midterm Project-SILMARO
 # Login-Logout Authentication
 
 ### This is my guide on how to implement login-logout authentication in a React application with a Strapi backend.
