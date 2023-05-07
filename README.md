@@ -53,14 +53,14 @@
 #### 5. Redirect the user to the home page using the useHistory.push() method.
 #### 6. If there is an error during login, display an error message using toast.error().
 
-## Protected Routes
+### Protected Routes
 
 #### 1. Create a ProtectedRoute component that takes a Component prop and renders it only if the user is authenticated.
 #### 2. Use the userData function from helpers.js to retrieve the JWT token from local storage.
 #### 3. If the JWT token is not present, redirect the user to the login page using the useNavigate() hook.
 #### 4. Otherwise, render the Component prop passed to the ProtectedRoute component.
 
-## Logout
+### Logout
 
 #### 1. Create a logout button component.
 #### 2. Import toast and useNavigate().
