@@ -18,8 +18,8 @@ const CustomNav = () => {
 
   return (
     <div className="custom-nav">
-  <Navbar color="light" light expand="md">
-    <NavbarBrand href="/home" className="mr-auto" style={{fontSize: "2rem", fontWeight: "bold", color: "purple"}}>
+  <Navbar color= "dark" light expand="md">
+    <NavbarBrand href="/home" className="mr-auto" style={{fontFamily: "-moz-initial", fontSize: "2rem", fontWeight: "bold", color: "white"}}>
       Welcome to my lessons in life!
     </NavbarBrand>
     <NavbarToggler onClick={toggle} className="mr-2" />
@@ -27,11 +27,11 @@ const CustomNav = () => {
       <Nav navbar>
         {isLoggedIn ? (
           <NavItem>
-            <NavLink href="/logout" style={{color: "purple"}}>Logout</NavLink>
+            <NavLink href="/logout" style={{color: "white"}}>Logout</NavLink>
           </NavItem>
         ) : (
           <NavItem>
-            <NavLink href="/" style={{color: "purple"}}>Login</NavLink>
+            <NavLink href="/" style={{color: "white"}}>Login</NavLink>
           </NavItem>
         )}
       </Nav>

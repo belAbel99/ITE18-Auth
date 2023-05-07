@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       <CustomNav />
       <div className="home">
-        <h2 style={{ textAlign: "center" }}>Read & Comprehend~</h2>
+      <h2 style={{ textAlign: "center", fontFamily: "-moz-initial", color: "white"}}>Read & Comprehend~</h2>
         {categories.length &&
           categories.map((category) => {
             const hasProducts = products.filter(
