@@ -20,7 +20,7 @@
 
 ## Install the dependencies using NPM:
 
-#### npm install
+#### npm install //on client and server folder
 
 ## Create a .env file in the root of your project with the following contents:
 
@@ -31,6 +31,11 @@
 
 #### npm start
 ##### Open your web browser and navigate to http://localhost:3000 to view the application.
+
+### For strapi
+
+#### npm run develop
+#### Open your web browser and navigate to http://localhost:1337/admin to manage you backend/server.
 
 ## Procedure
 
