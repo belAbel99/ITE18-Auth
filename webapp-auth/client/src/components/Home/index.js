@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "./Product";
-import CustomNav from "../CustomNav";
 import { Row, Col } from "reactstrap";
 import { useProducts } from "./useProducts";
 import { Link } from "react-router-dom";
@@ -10,7 +9,6 @@ const Home = () => {
 
   return (
     <div>
-      <CustomNav />
       <div className="home">
       <h2 style={{ textAlign: "center", fontFamily: "-moz-initial", color: "white"}}>Read & Comprehend~</h2>
         {categories.length &&

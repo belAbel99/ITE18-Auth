@@ -1,73 +1,63 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ProductView = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+export const useProductView = () => {
+  const { id: productId } = useParams();
+  const [product, setProduct] = useState({});
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  const handleQuantityChange = ({ target: { value } }) => {
+    setSelectedQuantity(value);
+  };
+
+  const getImage = (colour) => {
+    const { attributes } = product;
+    const image = attributes.images.data.find((image) =>
+      image.attributes.name.includes(colour)
+    );
+
+    return image.attributes.url || "";
+  };
 
   useEffect(() => {
-    const getProduct = async () => {
+    if (product && product.attributes) {
+      const { attributes } = product;
+      setSelectedColor(attributes.colours[0].name);
+      setSelectedSize(attributes.sizes[0].name);
+    }
+  }, [product, setSelectedColor, setSelectedSize]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
       try {
-        const response = await axios.get(`http://localhost:1337/api/product/${id}?populate=*`
+        const {
+          data: { data },
+        } = await axios.get(
+          `http://localhost:1337/api/products/${productId}?populate=*`
         );
-        setProduct(response.data);
-        setIsLoading(false);
+        console.log(data);
+        setProduct(data);
       } catch (error) {
-        setIsLoading(false);
-        toast.error(error.message, {
-          hideProgressBar: true,
-        });
+        console.log({ error });
       }
     };
 
-    getProduct();
-  }, [id]);
-
-  const image = product?.attributes?.images?.data[0]?.attributes;
-
-  const handleAddToCart = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      // perform add to cart action
-      toast.success("Product added to cart!", {
-        hideProgressBar: true,
-      });
-    } else {
-      // redirect to login page
-      navigate("/login");
+    if (productId) {
+      fetchCategories();
     }
+  }, [productId]);
+
+  return {
+    product,
+    getImage,
+    selectedSize,
+    selectedColor,
+    selectedQuantity,
+    setSelectedColor,
+    setSelectedSize,
+    handleQuantityChange,
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
-  return (
-    <div>
-      <Card className="product-card">
-        <CardImg
-          top
-          width="100%"
-          src={`http://localhost:1337${image?.url}`}
-          alt={image?.name}
-        />
-        <CardBody>
-          <CardTitle>{product.attributes.name}</CardTitle>
-          <CardText>{product.attributes.description}</CardText>
-          <button onClick={handleAddToCart}>Add to Cart</button>
-        </CardBody>
-      </Card>
-    </div>
-  );
 };
-
-export default ProductView;

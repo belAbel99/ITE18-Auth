@@ -38,6 +38,15 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "sizes": {
+      "type": "json"
+    },
+    "colours": {
+      "type": "json"
     }
   }
 }
